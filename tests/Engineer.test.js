@@ -13,7 +13,7 @@ test ('testing for name property', () => {
     // test value
     var testValue = '1'
   
-    const newEngineer = new Engineer(john, testValue, 123)
+    const newEngineer = new Engineer('john', testValue, 123, 456)
   
     expect(newEngineer.id).toBe(testValue)
   })
@@ -22,8 +22,36 @@ test ('testing for name property', () => {
     // test value
     var testValue = '123'
   
-    const newEngineer = new Engineer(john, 1, testValue)
+    const newEngineer = new Engineer('john', 1, testValue, 456)
   
     expect(newEngineer.email).toBe(testValue)
   })
+
+  test ('testing for github property', () => {
+    // test value
+    var testValue = '456'
+  
+    const newEngineer = new Engineer('john', 1, 123, testValue)
+  
+    expect(newEngineer.github).toBe(testValue)
+  })
+
+  test ('testing for getGithub method', () => {
+    // test value
+    var testValue = '456'
+  
+    const newEngineer = new Engineer('john', 1, 123, testValue)
+  
+    expect(newEngineer.getGithub()).toBe(testValue)
+  })
+
+  test ('testing for getRole method', () => {
+    // test value
+    var testValue = 'Engineer'
+  
+    const newEngineer = new Engineer('john', 1, 123, 456)
+  
+    expect(newEngineer.getRole()).toBe(testValue)
+  })
+  
   
