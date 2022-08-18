@@ -1,14 +1,67 @@
 const Employee = require("../lib/Employee");
 
-test('not sure', () => {
-    const employee = new Employee();
-  
-    expect(potion.name).toEqual(expect.any(String));
-    expect(potion.name.length).toBeGreaterThan(0);
-    expect(potion.value).toEqual(expect.any(Number));
-  });
-  
-  module.exports = Employee;
+test ('testing for name property', () => {
+  // test value
+  var testValue = 'john'
+
+  const newEmployee = new Employee(testValue, 1, 123)
+
+  expect(newEmployee.name).toBe(testValue)
+})
+
+test ('testing for id property', () => {
+  // test value
+  var testValue = '1'
+
+  const newEmployee = new Employee(john, testValue, 123)
+
+  expect(newEmployee.id).toBe(testValue)
+})
+
+test ('testing for email property', () => {
+  // test value
+  var testValue = '123'
+
+  const newEmployee = new Employee(john, 1, testValue)
+
+  expect(newEmployee.email).toBe(testValue)
+})
+
+test ('testing for getName method', () => {
+  // test value
+  var testValue = 'john'
+
+  const newEmployee = new Employee(testValue, 1, 123)
+
+  expect(newEmployee.getName).toBe(testValue)
+})
+
+test ('testing for getId method', () => {
+  // test value
+  var testValue = '1'
+
+  const newEmployee = new Employee(john, testValue, 123)
+
+  expect(newEmployee.getId).toBe(testValue)
+})
+
+test ('testing for getEmail method', () => {
+  // test value
+  var testValue = '123'
+
+  const newEmployee = new Employee(john, 1, testValue)
+
+  expect(newEmployee.getEmail).toBe(testValue)
+})
+
+test ('testing for getRole method', () => {
+  // test value
+  var testValue = 'Employee'
+
+  const newEmployee = new Employee(john, 1, 123)
+
+  expect(newEmployee.getRole).toBe(testValue)
+})
 
 
 
@@ -27,17 +80,3 @@ test('not sure', () => {
 
 
 
-
-
-
-
-
-
-
-// module.exports = function(val1, val2) {
-//     if (val1 === val2) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   };
