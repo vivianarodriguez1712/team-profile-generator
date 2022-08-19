@@ -2,7 +2,8 @@ const inquirer = require('inquirer');
 const fs = require("fs");
 const { finished } = require('stream');
 
-const employeeInfo = ([
+const employeeInfo = () = {
+  return inquirer.prompt([
     {
       type: 'input',
       name: 'name',
@@ -25,8 +26,8 @@ const employeeInfo = ([
         message: "Enter office number",
         
       },
-  ])
-  .then(answers => {
+
+  ]).then(answers => {
     console.info('Answer:', answers);
   });
 
@@ -76,15 +77,15 @@ const employeeInfo = ([
         newemployeeInfo.push(newIntern);          
     }
     
-    const finish = ([
-      {
-        type: 'list',
-        name: 'done',
-        message: 'Are you done building you team?',
-        choice: ['yes, no'],
-      }
+ const finish = ([
+   {
+     type: 'list',
+     name: 'done',
+     message: 'Are you done building you team?',
+     choice: ['yes, no'],
+   }
   ])
 
-  .then(finished, answers => {
+.then(finished, answers => {
      console.info('Answer:', answers);
     });
