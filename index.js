@@ -85,6 +85,6 @@ const employeeInfo = ([
       }
   ])
 
-  .then(finished (answers) => {
-    console.info('Answer:', answers);
-  };
+  .then(finished, answers => {
+     console.info('Answer:', answers);
+    });
