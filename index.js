@@ -141,16 +141,19 @@ const ifOptions = async (answers) => {
  }
 }
 
-//  const end = ([
+//  const end = async (answers) => {
+//   await inquirer.prompt ([
 //    {
 //      type: 'list',
 //      name: 'done',
 //      message: 'Are you done building you team?',
-//      choice: ['yes, no'],
+//      choice: ['yes', 'no'],
 //    }
 
 // .then(end, answers => { 
 //      console.info('Answer:', answers);
 //     })
 
-//   ])
+  
+ 
+//  ])}
