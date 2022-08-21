@@ -141,7 +141,7 @@ const ifOptions = async (answers) => {
  }
 }
 
-function newemployeeInfo () {
+function allEmployees () {
   fs.writeFileSync("dist/list.html", 'newemployeeInfo')
       .then(() => {
         console.log(
