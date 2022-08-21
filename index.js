@@ -141,6 +141,16 @@ const ifOptions = async (answers) => {
  }
 }
 
+function newemployeeInfo () {
+  fs.writeFileSync("dist/list.html", 'newemployeeInfo')
+      .then(() => {
+        console.log(
+          "dist/list.html."
+        );
+       })
+      .catch((err) => this.handleError(err));
+  }
+
 //  const end = async (answers) => {
 //   await inquirer.prompt ([
 //    {
