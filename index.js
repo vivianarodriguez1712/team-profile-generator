@@ -88,9 +88,9 @@ const ifOptions = async (answers) => {
       ]).then(github => {
 
         const engineer = new Engineer(
-          answers.name,
-          answers.id,
-          answers.email,
+          github.name,
+          github.id,
+          github.email,
           github.github
         );
 
@@ -128,9 +128,9 @@ const ifOptions = async (answers) => {
       ]).then(school => {
 
         const intern = new Intern(
-          answers.name,
-          answers.id,
-          answers.email,
+          school.name,
+          school.id,
+          school.email,
           school.school
         );
 
