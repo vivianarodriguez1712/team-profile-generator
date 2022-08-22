@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require("fs");
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const allEmployees = require('./src/page-template')
+const createTeam = require('./src/page-template')
 const Manager = require('./lib/Manager')
 
 const newemployeeInfo = []
@@ -178,6 +178,7 @@ const ifOptions = async (answers) => {
         console.log(newemployeeInfo);
       })
  }
+
 }
 
 function allEmployees () {
