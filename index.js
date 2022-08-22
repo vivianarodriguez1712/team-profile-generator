@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require("fs");
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const allEmployees = require('./src/page-template')
 const Manager = require('./lib/Manager')
 
 const newemployeeInfo = []
@@ -60,8 +61,46 @@ employeeInfo();
 
 const ifOptions = async (answers) => {
 
+ if (answers.add === "Manager") {
+    const addManager = inquirer
+      .prompt([
+        {
+          type: 'input',
+          name: 'name',
+          message: 'Enter managers name'
+        },
+        {
+          type: "input",
+          name: "id",
+          message: "Enter employee ID",
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "Enter email address",
+        },
+        {
+          type: "input",
+          name: "officeNumber",
+          message: "Enter office number",
+        },
 
-  if (answers.add === "Engineer") {
+      ]).then(school => {
+
+      const newManager = new Manager(
+        officeNumber.name,
+        officeNumber.id,
+        officeNumber.email,
+        officeNumber.officeNumber
+      );
+
+      newemployeeInfo.push(manager);
+
+      console.log.push(newemployeeInfo);
+
+      })
+
+      } else if (answers.add === "Engineer") {
     const employeeAnswer = inquirer
       .prompt([
         {
@@ -142,14 +181,10 @@ const ifOptions = async (answers) => {
 }
 
 function allEmployees () {
-  fs.writeFileSync("dist/list.html", 'newemployeeInfo')
-      .then(() => {
-        console.log(
-          "dist/list.html."
-        );
-       })
-      .catch((err) => this.handleError(err));
-  }
+   fs.writeFileSync("dist/list.html", createTeam(newemployeeInfo))
+   }
+
+  allEmployees(); 
 
 //  const end = async (answers) => {
 //   await inquirer.prompt ([
