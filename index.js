@@ -7,6 +7,23 @@ const Manager = require('./lib/Manager')
 
 const newemployeeInfo = []
 
+const employeeQuestion = async () => {
+  await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'add',
+      message: 'Want to add an employee?',
+      choices: ['Engineer', 'Intern', 'Finish building my team']
+    }
+
+  ]).then(async choice => {
+    await ifOptions(choice)
+    // this is for employeeQuestions
+    // console.info('Answer:', choice);
+    allEmployees();
+  })
+}
+
 const employeeInfo = async () => {
   await inquirer.prompt([
     {
@@ -34,21 +51,6 @@ const employeeInfo = async () => {
 
   ]).then(answers => {
 
-    const employeeQuestion = async () => {
-      await inquirer.prompt([
-        {
-          type: 'list',
-          name: 'add',
-          message: 'Want to add an employee?',
-          choices: ['Engineer', 'Intern', 'Finish building my team']
-        }
-
-      ]).then(choice => {
-        ifOptions(choice)
-        // this is for employeeQuestions
-        // console.info('Answer:', choice);
-      })
-    }
     employeeQuestion();
 
     // for the first .then on line 29
@@ -60,9 +62,9 @@ const employeeInfo = async () => {
 employeeInfo();
 
 const ifOptions = async (answers) => {
-
+console.log(employeeQuestion)
  if (answers.add === "Manager") {
-    const addManager = inquirer
+    return inquirer
       .prompt([
         {
           type: 'input',
@@ -98,10 +100,11 @@ const ifOptions = async (answers) => {
 
       console.log.push(newemployeeInfo);
 
-      })
+      return employeeQuestion();
+     })
 
       } else if (answers.add === "Engineer") {
-    const employeeAnswer = inquirer
+        return inquirer
       .prompt([
         {
           type: 'input',
@@ -136,11 +139,14 @@ const ifOptions = async (answers) => {
         newemployeeInfo.push(engineer);
 
         console.log(newemployeeInfo);
+       
+         return employeeQuestion(); 
       })
+  
 
 
   } else if (answers.add === "Intern") {
-    const internInfo = inquirer
+     return inquirer
       .prompt([
         {
           type: 'input',
@@ -176,16 +182,19 @@ const ifOptions = async (answers) => {
         newemployeeInfo.push(intern);
 
         console.log(newemployeeInfo);
+
+        return employeeQuestion();
       })
  }
-
 }
 
-function allEmployees () {
-   fs.writeFileSync("dist/list.html", createTeam(newemployeeInfo))
-   }
+ function allEmployees () {
+  fs.writeFileSync("dist/list.html", createTeam(newemployeeInfo))
+  }
 
-  allEmployees(); 
+
+
+
 
 //  const end = async (answers) => {
 //   await inquirer.prompt ([
