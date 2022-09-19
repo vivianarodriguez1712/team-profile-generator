@@ -9,3 +9,5 @@
 # Built with
 ## HTML, JS, Node Index.js
 
+# Video 
+![Walk through video](https://streamable.com/9tnyfb)
